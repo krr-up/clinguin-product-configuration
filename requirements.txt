@@ -1,0 +1,2 @@
+git+https://github.com/potassco/clinguin.git@59e3397484c511bcd50784c062bae262a9b7f795
+git+https://github.com/bramucas/xclingo2@6de1b55d074d5f5f3b5fa5d7119a72fd56e6a6d9
