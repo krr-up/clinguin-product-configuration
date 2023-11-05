@@ -270,9 +270,7 @@ elem(header_opt(O,D), label, optCon(O)) :- sub_row_opts(O,D,_).
 attr(header_opt(O,D), label, @concat("","#",D)) :- sub_row_opts(O,D,_).
 attr(header_opt(O,D), grid_row, N) :- sub_row_opts(O,D,N).
 attr(header_opt(O,D), grid_column, 0) :- sub_row_opts(O,D,_).
-attr(header_opt(O,D), class, "rounded") :- sub_row_opts(O,D,_), _muc(count(O,D,_)).
-attr(header_opt(O,D), class, "border") :- sub_row_opts(O,D,_), _muc(count(O,D,_)).
-attr(header_opt(O,D), class, "bg-danger") :- sub_row_opts(O,D,_), _muc(count(O,D,_)).
+attr(header_opt(O,D), class, ("rounded";"border";"bg-danger")) :- sub_row_opts(O,D,_), _muc(count(O,D,_)).
 
 
 elem(ddOpt(O,D), dropdown_menu, optCon(O)) :- sub_row_opts(O,D,_).
@@ -338,9 +336,7 @@ elem(header(O,A), label, container(O)) :- sub_row(O,A,_).
 attr(header(O,A), label, A) :- sub_row(O,A,_).
 attr(header(O,A), grid_row, N) :- sub_row(O,A,N).
 attr(header(O,A), grid_column, 0) :- sub_row(O,A,_).
-attr(header(O,A), class, "rounded") :- sub_row(O,A,_), _muc(val((O,A),_)).
-attr(header(O,A), class, "border") :- sub_row(O,A,_), _muc(val((O,A),_)).
-attr(header(O,A), class, "bg-danger") :- sub_row(O,A,_), _muc(val((O,A),_)).
+attr(header(O,A), class, ("rounded";"border";"bg-danger")) :- sub_row(O,A,_), _muc(val((O,A),_)).
 
 elem(dropdown(O,A), dropdown_menu, container(O)) :- sub_row(O,A,_).
 attr(dropdown(O,A), grid_row, N) :- sub_row(O,A,N).
