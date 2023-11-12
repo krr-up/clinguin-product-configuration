@@ -32,19 +32,19 @@ Each of these directories contains one or multiple of the following:
 4. Run clinguin with the custom backend and UI definitions from this repo
 
 
-1. 
+**Step 1:**
 ```shell
 conda create --name clinguin_product_configuration
 ```
 
 
-2.
+**Step 2:**
 ```shell
 pip install -r requirements.txt
 ```
 
 
-3.
+**Step 3:**
 This step currently needs some manual assistance.
 
 Move into the clinguin codebase in your virtual environment.
@@ -57,7 +57,7 @@ mv angular_frontend/dist/clinguin_angular_frontend clinguin/client/presentation/
 Depending on you setup you might have to move this build into this repo under `/clinguin`.
 
 
-4.
+**Step 4:**
 ### Configuration of a product domain
 
 Run this command for the product domain generation:
@@ -78,6 +78,8 @@ There are other examples in the directory `/examples`, which can be used by simp
 
 
 ## weird bugs:
-- when booting up the app, the first argument of @concat() was systematically ignored. this didn't happen before and might not happen on other maschines (fixed this by adding an empty string infront)
+- when booting up the app, the first argument of @concat() was systematically ignored. this didn't happen before and might not happen on other machines (fixed this by adding an empty string infront)
 
 
+# ToDo:
+- the ui contains a custom version of '_clinguin_browsing', using an atom "recommendation". This should be removed for '_clinguin_browsing'.
