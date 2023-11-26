@@ -38,7 +38,7 @@ attr(node,T,label,@concat(
                         "</TABLE>>"))   :- type(T).
 
 attr(node,T,(label,name),T)             :- type(T).
-attr(node,T,(label,aggr,D),@format("<B>{0}: {1}</B>",D,F)) :- attr(T,D,F), F != "discrete", F != "numeric". % Aggregate attributes
+attr(node,T,(label,aggr,D),@format("{0}: {1}",D,F)) :- attr(T,D,F), F != "discrete", F != "numeric". % Aggregate attributes
 attr(node,T,(label,attr,D),@format("{0}",D)) :- attr(T,D,"discrete"), dom(T,D,V). % Discrete attributes, TODO: Should values be shown?
 attr(node,T,(label,attr,D),@format("{0}: {1}..{2}",D,Min,Max)) :- attr(T,D,"numeric"), dom(T,D,Min,Max). % Numeric attributes, TODO: Should values be shown?
 

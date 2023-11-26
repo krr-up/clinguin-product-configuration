@@ -63,7 +63,7 @@ Depending on you setup you might have to move this build into this repo under `/
 Run this command for the product domain generation:
 
 ```shell
-clinguin client-server --custom-classes "./backends" --backend=ProductConfigBackend --domain-files frontends/configuration_instance/encoding.lp --ui-files frontends/configuration_instance/ui.lp  --clingraph-files frontends/configuration_instance/viz.lp --include-menu-bar --disable-saved-to-file --ignore-unsat-msg --server-port 8000 --frontend AngularFrontend --client-port 8081
+clinguin client-server --custom-classes "./backends" --backend=ProductConfigBackend --domain-files frontends/configuration_instance/encoding.lp --ui-files frontends/configuration_instance/ui.lp  --clingraph-files frontends/configuration_instance/viz.lp --include-menu-bar --disable-saved-to-file --ignore-unsat-msg --server-port 8000 --frontend AngularFrontend --client-port 8080
 ```
 
 ### Configuration of a product
@@ -71,7 +71,7 @@ clinguin client-server --custom-classes "./backends" --backend=ProductConfigBack
 Run the following command for the product configuration of a travel bike.
 
 ```shell
-clinguin client-server --custom-classes "./backends" --backend=ProductConfigBackend --domain-files examples/travel_bike_2/instance_translated.lp frontends/configuration/encoding.lp --ui-files frontends/configuration/ui.lp  --clingraph-files frontends/configuration/viz_instance.lp frontends/configuration/viz_solution.lp --include-menu-bar --assumption-signature=constraint,2 --disable-saved-to-file --ignore-unsat-msg --server-port 8003 --frontend AngularFrontend --client-port 8080
+clinguin client-server --custom-classes "./backends" --backend=ProductConfigBackend --domain-files examples/travel_bike_2/instance_translated.lp frontends/configuration/encoding.lp --ui-files frontends/configuration/ui.lp  --clingraph-files frontends/configuration/viz_instance.lp frontends/configuration/viz_solution.lp --include-menu-bar --assumption-signature=constraint,2 --disable-saved-to-file --ignore-unsat-msg --server-port 8001 --frontend AngularFrontend --client-port 8081
 ```
 
 There are other examples in the directory `/examples`, which can be used by simply changing the first argument under `--domain-files` from ` examples/travel_bike_2/instance_translated.lp` to `examples/kids_bike/instance_translated.lp`

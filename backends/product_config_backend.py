@@ -325,7 +325,7 @@ class ProductConfigBackend(ClingraphBackend):
     def get_explanation_aggregates(self):
 
         # load the annotated encoding
-        with open('examples/configuration/xclingo_encoding_aggregates.lp', "r") as file:
+        with open('frontends/configuration/xclingo_encoding_aggregates.lp', "r") as file:
             xclingo_encoding = file.read()
 
         # load the actual instance, 
@@ -424,7 +424,7 @@ class ProductConfigBackend(ClingraphBackend):
     def get_explanation_unsat(self):
 
         # load the annotated encoding
-        with open('examples/configuration/xclingo_encoding_unsat.lp', "r") as file:
+        with open('frontends/configuration/xclingo_encoding_unsat.lp', "r") as file:
             xclingo_encoding = file.read()
 
         # load the actual instance, 
@@ -586,7 +586,7 @@ class ProductConfigBackend(ClingraphBackend):
                         for i, f in enumerate(fbs) ]
 
         graphs = compute_graphs(fbs, graphviz_type=self._type)
-        graphs = [{'solution':graphs[0]['solution']}]
+        graphs = [{'default':graphs[0]['default']}]
         write_arguments = {"directory": directory, "name_format": image_name}
         paths = render(
             graphs, format="png", engine=self._engine, view=False, **write_arguments
@@ -626,10 +626,15 @@ class ProductConfigBackend(ClingraphBackend):
                 if base_string.startswith('path('):
                     iterators = ','.join(predicate.split(',')[split_index:])[:-1].split(';')    
                 else:
-                    iterators = predicate.split(',')[split_index][:-1].split(';')    
-            
+                    if predicate.startswith('multiplicity('):
+                        iterators = predicate.split(',')[split_index][:-1].split(';')    
+                    else:
+                        iterators = predicate.replace('(','').replace(')','').split(',')[split_index][:-1].split(';')    
+
+            print(iterators)
             for i in iterators:
                 parsed_string = base_string + ',' + str(i) + ')'
+                print(parsed_string)
                 predicate_symbol = parse_term(parsed_string)
                 if predicate_symbol not in self._atoms:
                     self._add_atom(predicate_symbol)
